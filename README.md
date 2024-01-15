@@ -1,4 +1,4 @@
-[Deploy](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md)
+[Deploy](https://kevinvillajim.github.io/bitacoraPFN4/)
 
 # React + Vite
 
