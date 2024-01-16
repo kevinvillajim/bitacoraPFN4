@@ -43,7 +43,7 @@ function Bitacoras() {
 						<div className="flex justify-between mb-[1rem]">
 							<h1 className="text-[30px] font-bold text-gray-800">Bitacoras</h1>
 						</div>
-						<div className="h-[90%] w-[90%] bg-white rounded-lg p-[1rem]">
+						<div className="h-[30rem] w-[90%] bg-white rounded-lg p-[1rem] overflow-auto">
 							<Tabla
 								url="http://127.0.0.1:8000/api/bitacoras/"
 								headers={[

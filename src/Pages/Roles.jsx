@@ -52,7 +52,7 @@ function Roles() {
 								Crear Rol
 							</button>
 						</div>
-						<div className="h-[90%] w-[90%] bg-white rounded-lg p-[1rem]">
+						<div className="h-[30rem] w-[90%] bg-white rounded-lg p-[1rem] overflow-auto">
 							<Tabla
 								url="http://127.0.0.1:8000/api/roles/"
 								headers={[

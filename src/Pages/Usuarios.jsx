@@ -58,7 +58,7 @@ function Usuarios({nombreCompleto, email, photo}) {
 								Crear Usuario
 							</button>
 						</div>
-						<div className="h-[95%] w-[95%] bg-white rounded-lg p-[1rem]">
+						<div className="h-[30rem] w-[90%] bg-white rounded-lg p-[1rem] overflow-auto">
 							<Tabla
 								url="http://127.0.0.1:8000/api/usuarios/"
 								headers={[
