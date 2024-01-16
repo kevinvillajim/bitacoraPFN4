@@ -40,7 +40,7 @@ function Bitacoras() {
 						<ModalUser />
 					</div>
 					<div className="p-[2rem] bg-[#e3e3e3] h-full">
-						<div>
+						<div className="flex justify-between mb-[1rem]">
 							<h1 className="text-[30px] font-bold text-gray-800">Bitacoras</h1>
 						</div>
 						<div className="h-[90%] w-[90%] bg-white rounded-lg p-[1rem]">

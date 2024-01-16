@@ -16,7 +16,9 @@ function Login() {
 			if (!res.data.status) {
 				setErrorMessage(res.data.message);
 			} else {
+				console.log(res.data);
 				localStorage.setItem("token", res.data.token);
+				localStorage.setItem("id", res.data.id);
 				navigate("/roles");
 				window.location.reload();
 			}
@@ -89,13 +91,7 @@ function Login() {
 						<div className="px-[1rem] py-[0.5rem] space-y-[0.15rem]">
 							<h3 className="font-bold">Admin</h3>
 							<h5>user: admin@admin</h5>
-							<h5>pass: admin</h5>
-							<h3 className="font-bold">Maestros</h3>
-							<h5>user: maestro@maestro</h5>
-							<h5>pass: maestro</h5>
-							<h3 className="font-bold">Alumno</h3>
-							<h5>user: alumno@alumno</h5>
-							<h5>pass: alumno</h5>
+							<h5>pass: 123456</h5>
 						</div>
 					</div>
 				</div>

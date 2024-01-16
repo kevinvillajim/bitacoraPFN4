@@ -1,33 +1,30 @@
-import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import "./App.css";
+import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
 import Roles from "./Pages/Roles";
 import Usuarios from "./Pages/Usuarios";
 import Bitacoras from "./Pages/Bitacoras";
 import Paginas from "./Pages/Paginas";
 import NotFound from "./Pages/NotFound";
 import Login from "./Pages/Login";
-import {useState, useEffect} from "react";
 import Signup from "./Pages/Signup";
+import {useState, useEffect} from "react";
+import Profile from "./Pages/Profile";
+import ProfileEdit from "./Pages/ProfileEdit";
 
 function App() {
 	const [token, setToken] = useState(localStorage.getItem("token"));
-
 	useEffect(() => {
 		const handleStorageChange = () => {
 			setToken(localStorage.getItem("token"));
 		};
-
 		window.addEventListener("storage", handleStorageChange);
-
 		return () => {
 			window.removeEventListener("storage", handleStorageChange);
 		};
 	}, []);
-
 	const handleLogin = (newToken) => {
 		setToken(newToken);
 	};
-
 	// Verificar si el usuario está autenticado
 	const isAuthenticated = !!token;
 
@@ -40,7 +37,7 @@ function App() {
 					<Route
 						path="/"
 						element={
-							!isAuthenticated ? <Navigate to="/login" replace /> : <Roles />
+							!isAuthenticated ? <Navigate to="/login" replace /> : <Profile />
 						}
 					/>
 					<Route
@@ -50,6 +47,22 @@ function App() {
 								<Navigate to="/usuarios" replace />
 							) : (
 								<Login onLogin={handleLogin} />
+							)
+						}
+					/>
+					<Route
+						path="/profile"
+						element={
+							!isAuthenticated ? <Navigate to="/login" replace /> : <Profile />
+						}
+					/>
+					<Route
+						path="/edit-profile"
+						element={
+							!isAuthenticated ? (
+								<Navigate to="/login" replace />
+							) : (
+								<ProfileEdit />
 							)
 						}
 					/>

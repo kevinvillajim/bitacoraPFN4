@@ -22,7 +22,7 @@ function Signup() {
 					.then((res) => {
 						// Si la autenticación es exitosa, guarda el token en el almacenamiento local
 						localStorage.setItem("token", res.data.token);
-
+						localStorage.setItem("id", res.data.id);
 						// Navega a la página "/roles" y recarga la ventana
 						navigate("/roles");
 						window.location.reload();

@@ -1,13 +1,13 @@
+import PropTypes from "prop-types";
 import {useState} from "react";
 import SideBar from "../components/SideBar";
 import "../App.css";
 import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import Tabla from "../components/Tabla";
+import {ModalNew} from "../components/ModalNew";
 
 const logo = "/logo.png";
-const name = "Kevin";
-const rol = "admin";
 
 const sideBarOptions = [
 	{link: "/roles/", icon: "manage_accounts", name: "Roles"},
@@ -16,22 +16,29 @@ const sideBarOptions = [
 	{link: "/paginas/", icon: "link", name: "Paginas"},
 ];
 
-function Roles() {
+function Usuarios({nombreCompleto, email, photo}) {
 	const [showMenu, setShowMenu] = useState(true);
 	const [showModal, setShowModal] = useState(false);
+
+	const [showModalNew, setShowModalNew] = useState(false);
 	return (
 		<>
 			<div className={showMenu ? "grid grid-cols-1 md:grid-cols-5" : "flex"}>
 				<div
 					className={showMenu ? "col-span-1 md:col-span-1 h-screen" : "hidden"}
 				>
-					<SideBar logo={logo} name={name} rol={rol} options={sideBarOptions} />
+					<SideBar
+						logo={logo}
+						name={nombreCompleto}
+						email={email}
+						options={sideBarOptions}
+					/>
 				</div>
 				<div className={showMenu ? "col-span-1 md:col-span-4" : "w-screen"}>
 					<div>
 						<Header
-							name={name}
-							avatar={"/avatar.png"}
+							name={nombreCompleto}
+							avatar={photo}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}
 						/>
@@ -40,7 +47,17 @@ function Roles() {
 						<ModalUser />
 					</div>
 					<div className="p-[2rem] bg-[#e3e3e3] h-full">
-						<h1 className="text-[30px] font-bold text-gray-800">Usuarios</h1>
+						<div className="flex justify-between mb-[1rem]">
+							<h1 className="text-[30px] font-bold text-gray-800">Usuarios</h1>
+							<button
+								className="bg-[#dba18a] text-white rounded-lg px-[1rem] py-[0.5rem] mr-[6rem]"
+								onClick={() => {
+									setShowModalNew(true);
+								}}
+							>
+								Crear Usuario
+							</button>
+						</div>
 						<div className="h-[95%] w-[95%] bg-white rounded-lg p-[1rem]">
 							<Tabla
 								url="http://127.0.0.1:8000/api/usuarios/"
@@ -58,8 +75,34 @@ function Roles() {
 					</div>
 				</div>
 			</div>
+			{showModalNew && (
+				<ModalNew
+					setShowModalNew={setShowModalNew}
+					formObject={[
+						{name: "email", label: "Email", style: ""},
+						{name: "password", label: "Contraseña", style: ""},
+						{
+							name: "habilitado",
+							label: "Habilitado",
+							style: "hidden",
+							value: "1",
+						},
+						{
+							name: "img",
+							label: "Avatar",
+							style: "hidden",
+							value: "/avatar.png",
+						},
+					]}
+					api="http://127.0.0.1:8000/api/usuarios"
+				/>
+			)}
 		</>
 	);
 }
-
-export default Roles;
+Usuarios.propTypes = {
+	nombreCompleto: PropTypes.string,
+	email: PropTypes.func,
+	photo: PropTypes.func,
+};
+export default Usuarios;
