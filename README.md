@@ -4,9 +4,9 @@
 
 1) Descargar el Zip o clonar el repositorio del backend [Aqui](https://github.com/kevinvillajim/bbackendPFN4)
 2) Una vez con el proyecto local (laravel) ejecutar los comandos: 
-php artisan migrate
-php artisan db:seed
-php artisan serve
+a)php artisan migrate
+b)php artisan db:seed
+c)php artisan serve
 3) Ingresar y correl el front end, o en el deploy de la parte superior o localmente es lo mismo.
 
 # React + Vite
