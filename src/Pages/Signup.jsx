@@ -95,7 +95,7 @@ function Signup() {
 								<p>Ya eres miembro?</p>
 
 								<div>
-									<a href="/login" className="text-[#dba18a]">
+									<a href="/#/login" className="text-[#dba18a]">
 										<span>Inicia Sesión</span>
 									</a>
 								</div>

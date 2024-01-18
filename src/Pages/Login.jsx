@@ -76,7 +76,7 @@ function Login() {
 								<p>No tienes cuenta?</p>
 
 								<div>
-									<a href="/signup" className="text-[#dba18a]">
+									<a href="/#/signup" className="text-[#dba18a]">
 										<span>Registrate</span>
 									</a>
 								</div>

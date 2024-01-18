@@ -1,5 +1,12 @@
 import "./App.css";
-import {BrowserRouter, Route, Routes, Navigate} from "react-router-dom";
+import {
+	// BrowserRouter,
+	// Route,
+	// Routes,
+	Navigate,
+	createHashRouter,
+	RouterProvider,
+} from "react-router-dom";
 import Roles from "./Pages/Roles";
 import Usuarios from "./Pages/Usuarios";
 import Bitacoras from "./Pages/Bitacoras";
@@ -28,9 +35,82 @@ function App() {
 	// Verificar si el usuario está autenticado
 	const isAuthenticated = !!token;
 
+	const router = createHashRouter([
+		{
+			path: "/",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<Profile />
+			),
+		},
+		{
+			path: "/login",
+			element: isAuthenticated ? (
+				<Navigate to="/usuarios" replace />
+			) : (
+				<Login onLogin={handleLogin} />
+			),
+		},
+		{
+			path: "/profile",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<Profile />
+			),
+		},
+		{
+			path: "/edit-profile",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<ProfileEdit />
+			),
+		},
+		{
+			path: "/usuarios",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<Usuarios />
+			),
+		},
+		{
+			path: "/roles",
+			element: !isAuthenticated ? <Navigate to="/login" replace /> : <Roles />,
+		},
+		{
+			path: "/bitacoras",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<Bitacoras />
+			),
+		},
+		{
+			path: "/paginas",
+			element: !isAuthenticated ? (
+				<Navigate to="/login" replace />
+			) : (
+				<Paginas />
+			),
+		},
+		{
+			path: "/signup",
+			element: <Signup />,
+		},
+		{
+			path: "*",
+			element: <NotFound />,
+		},
+	]);
+
 	return (
 		<>
-			<BrowserRouter>
+			<RouterProvider router={router} />
+
+			{/* <BrowserRouter>
 				<Routes>
 					<Route path="*" element={<NotFound />} />
 					<Route path="/signup" element={<Signup />} />
@@ -95,7 +175,7 @@ function App() {
 						}
 					/>
 				</Routes>
-			</BrowserRouter>
+			</BrowserRouter> */}
 		</>
 	);
 }

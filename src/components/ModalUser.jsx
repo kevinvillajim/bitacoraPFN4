@@ -13,7 +13,7 @@ function ModalUser() {
 			>
 				<a
 					className="hover:bg-[#2e2e2e] cursor-pointer rounded-xl p-[0.5rem] my-[1rem] flex items-center"
-					href="/profile"
+					href="/#/profile"
 				>
 					<span className="material-symbols-outlined mr-[0.3rem] text-[#fff]">
 						{" "}
