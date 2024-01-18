@@ -1,22 +1,61 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SideBar from "../components/SideBar";
 import "../App.css";
 import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import Tabla from "../components/Tabla";
+import useFetch from "../hooks/useFetch";
 
 const logo = "/logo.png";
-const name = "Kevin";
-const rol = "admin";
 
 const sideBarOptions = [
-	{link: "/#/roles/", icon: "manage_accounts", name: "Roles"},
-	{link: "/#/usuarios/", icon: "co_present", name: "Usuarios"},
-	{link: "/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
-	{link: "/#/paginas/", icon: "link", name: "Paginas"},
+	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
+	{link: "/bitacoraPFN4/#/usuarios/", icon: "co_present", name: "Usuarios"},
+	{link: "/bitacoraPFN4/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
+	{link: "/bitacoraPFN4/#/paginas/", icon: "link", name: "Paginas"},
 ];
 
 function Bitacoras() {
+	const userId = localStorage.getItem("id");
+	const url = `http://127.0.0.1:8000/api/usuarios/${userId}`;
+	const {data, loading, error} = useFetch(url);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				if (!loading && !error && data) {
+					//console.log("Correcto");
+				}
+			} catch (error) {
+				console.error("Error al obtener datos del usuario:", error);
+			}
+		};
+
+		fetchData();
+	}, [data, loading, error]);
+
+	// Llamada a la API para obtener otros datos (por ejemplo, datos de personas)
+	const url2 = `http://127.0.0.1:8000/api/personas/${userId}`;
+	const {data: data2, loading: loading2, error: error2} = useFetch(url2);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				if (!loading2 && !error2 && data2) {
+					//console.log(data2);
+				}
+			} catch (error2) {
+				console.error("Error al obtener datos de la persona:", error2);
+			}
+		};
+
+		fetchData();
+	}, [data2, loading2, error2]);
+
+	const nombreCompleto =
+		data2 && data2.primer_nombre + " " + data2.primer_apellido;
+	const email = data && data.email;
+
 	const [showMenu, setShowMenu] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 	return (
@@ -25,12 +64,17 @@ function Bitacoras() {
 				<div
 					className={showMenu ? "col-span-1 md:col-span-1 h-screen" : "hidden"}
 				>
-					<SideBar logo={logo} name={name} rol={rol} options={sideBarOptions} />
+					<SideBar
+						logo={logo}
+						name={nombreCompleto}
+						email={email}
+						options={sideBarOptions}
+					/>
 				</div>
 				<div className={showMenu ? "col-span-1 md:col-span-4" : "w-screen"}>
 					<div>
 						<Header
-							name={name}
+							name={nombreCompleto}
 							avatar={"/avatar.png"}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}

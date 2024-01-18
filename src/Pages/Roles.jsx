@@ -9,10 +9,10 @@ import {ModalNew} from "../components/ModalNew";
 const logo = "/logo.png";
 
 const sideBarOptions = [
-	{link: "/#/roles/", icon: "manage_accounts", name: "Roles"},
-	{link: "/#/usuarios/", icon: "co_present", name: "Usuarios"},
-	{link: "/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
-	{link: "/#/paginas/", icon: "link", name: "Paginas"},
+	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
+	{link: "/bitacoraPFN4/#/usuarios/", icon: "co_present", name: "Usuarios"},
+	{link: "/bitacoraPFN4/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
+	{link: "/bitacoraPFN4/#/paginas/", icon: "link", name: "Paginas"},
 ];
 
 function Roles() {

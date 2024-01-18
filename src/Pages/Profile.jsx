@@ -10,10 +10,10 @@ const name = "Kevin";
 const rol = "admin";
 
 const sideBarOptions = [
-	{link: "/#/roles/", icon: "manage_accounts", name: "Roles"},
-	{link: "/#/usuarios/", icon: "co_present", name: "Usuarios"},
-	{link: "/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
-	{link: "/#/paginas/", icon: "link", name: "Paginas"},
+	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
+	{link: "/bitacoraPFN4/#/usuarios/", icon: "co_present", name: "Usuarios"},
+	{link: "/bitacoraPFN4/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
+	{link: "/bitacoraPFN4/#/paginas/", icon: "link", name: "Paginas"},
 ];
 
 function Profile() {
@@ -122,7 +122,7 @@ function Profile() {
 										</div>
 										<a
 											id="edit-button"
-											href="/#/edit-profile"
+											href="/bitacoraPFN4/#/edit-profile"
 											className="py-2 px-4 bg-[#dba18a] text-white rounded-md"
 										>
 											Edit
