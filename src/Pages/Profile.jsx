@@ -6,8 +6,6 @@ import Header from "../components/Header";
 import {useFetch} from "../components/useFetch.js";
 
 const logo = "/logo.png";
-const name = "Kevin";
-const rol = "admin";
 
 const sideBarOptions = [
 	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
@@ -72,13 +70,18 @@ function Profile() {
 				<div
 					className={showMenu ? "col-span-1 md:col-span-1 h-screen" : "hidden"}
 				>
-					<SideBar logo={logo} name={name} rol={rol} options={sideBarOptions} />
+					<SideBar
+						logo={logo}
+						name={userName}
+						email={email}
+						options={sideBarOptions}
+					/>
 				</div>
 				<div className={showMenu ? "col-span-1 md:col-span-4" : "w-screen"}>
 					<div>
 						<Header
-							name={nombreCompleto}
-							avatar={"/avatar.png"}
+							name={userName}
+							avatar={photo}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}
 						/>
@@ -122,7 +125,7 @@ function Profile() {
 										</div>
 										<a
 											id="edit-button"
-											href="/bitacoraPFN4/#/edit-profile"
+											href="/#/edit-profile"
 											className="py-2 px-4 bg-[#dba18a] text-white rounded-md"
 										>
 											Edit

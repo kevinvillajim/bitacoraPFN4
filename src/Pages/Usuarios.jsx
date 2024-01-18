@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import SideBar from "../components/SideBar";
 import "../App.css";
 import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import Tabla from "../components/Tabla";
 import {ModalNew} from "../components/ModalNew";
+import {useFetch} from "../components/useFetch";
 
 const logo = "/logo.png";
 
@@ -16,11 +17,53 @@ const sideBarOptions = [
 	{link: "/#/paginas/", icon: "link", name: "Paginas"},
 ];
 
-function Usuarios({nombreCompleto, email, photo}) {
+function Usuarios() {
 	const [showMenu, setShowMenu] = useState(true);
 	const [showModal, setShowModal] = useState(false);
 
 	const [showModalNew, setShowModalNew] = useState(false);
+
+	const userId = localStorage.getItem("id");
+	const url = `http://127.0.0.1:8000/api/usuarios/${userId}`;
+	const {data, loading, error} = useFetch(url);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				if (!loading && !error && data) {
+					//console.log("Correcto");
+				}
+			} catch (error) {
+				console.error("Error al obtener datos del usuario:", error);
+			}
+		};
+
+		fetchData();
+	}, [data, loading, error]);
+
+	// Llamada a la API para obtener otros datos (por ejemplo, datos de personas)
+	const url2 = `http://127.0.0.1:8000/api/personas/${userId}`;
+	const {data: data2, loading: loading2, error: error2} = useFetch(url2);
+
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				if (!loading2 && !error2 && data2) {
+					//console.log(data2);
+				}
+			} catch (error2) {
+				console.error("Error al obtener datos de la persona:", error2);
+			}
+		};
+
+		fetchData();
+	}, [data2, loading2, error2]);
+
+	const nombreCompleto =
+		data2 && data2.primer_nombre + " " + data2.primer_apellido;
+	const email = data && data.email;
+	const avatar = data && data.img;
+
 	return (
 		<>
 			<div className={showMenu ? "grid grid-cols-1 md:grid-cols-5" : "flex"}>
@@ -38,7 +81,7 @@ function Usuarios({nombreCompleto, email, photo}) {
 					<div>
 						<Header
 							name={nombreCompleto}
-							avatar={photo}
+							avatar={avatar}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}
 						/>

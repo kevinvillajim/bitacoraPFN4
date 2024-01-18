@@ -7,8 +7,6 @@ import {useEffect} from "react";
 import {useFetch} from "../components/useFetch";
 
 const logo = "/logo.png";
-const name = "Kevin";
-const rol = "admin";
 
 const sideBarOptions = [
 	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
@@ -151,19 +149,32 @@ function ProfileEdit() {
 
 	const [showMenu, setShowMenu] = useState(true);
 	const [showModal, setShowModal] = useState(false);
+
+	const nombreCompleto =
+		data2 && data2.primer_nombre + " " + data2.primer_apellido;
+
+	let userName = nombreCompleto;
+	let email = data && data.email;
+	let photo = data && data.img;
+
 	return (
 		<>
 			<div className={showMenu ? "grid grid-cols-1 md:grid-cols-5" : "flex"}>
 				<div
 					className={showMenu ? "col-span-1 md:col-span-1 h-screen" : "hidden"}
 				>
-					<SideBar logo={logo} name={name} rol={rol} options={sideBarOptions} />
+					<SideBar
+						logo={logo}
+						name={userName}
+						email={email}
+						options={sideBarOptions}
+					/>
 				</div>
 				<div className={showMenu ? "col-span-1 md:col-span-4" : "w-screen"}>
 					<div>
 						<Header
-							name={name}
-							avatar={"/avatar.png"}
+							name={userName}
+							avatar={photo}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}
 						/>
@@ -176,7 +187,7 @@ function ProfileEdit() {
 							<div id="body-container">
 								<section id="back-container" className="mb-1">
 									<a
-										href="/bitacoraPFN4/#/profile"
+										href="/#/profile"
 										id="back"
 										className="text-[#dba18a] text-lg font-medium flex items-center"
 									>

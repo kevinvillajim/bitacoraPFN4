@@ -4,15 +4,15 @@ import "../App.css";
 import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import Tabla from "../components/Tabla";
-import useFetch from "../components/useFetch";
+import {useFetch} from "../components/useFetch";
 
 const logo = "/logo.png";
 
 const sideBarOptions = [
-	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
-	{link: "/bitacoraPFN4/#/usuarios/", icon: "co_present", name: "Usuarios"},
-	{link: "/bitacoraPFN4/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
-	{link: "/bitacoraPFN4/#/paginas/", icon: "link", name: "Paginas"},
+	{link: "/#/roles/", icon: "manage_accounts", name: "Roles"},
+	{link: "/#/usuarios/", icon: "co_present", name: "Usuarios"},
+	{link: "/#/bitacoras/", icon: "menu_book", name: "Bitacoras"},
+	{link: "/#/paginas/", icon: "link", name: "Paginas"},
 ];
 
 function Bitacoras() {
@@ -55,6 +55,7 @@ function Bitacoras() {
 	const nombreCompleto =
 		data2 && data2.primer_nombre + " " + data2.primer_apellido;
 	const email = data && data.email;
+	const avatar = data && data.img;
 
 	const [showMenu, setShowMenu] = useState(true);
 	const [showModal, setShowModal] = useState(false);
@@ -75,7 +76,7 @@ function Bitacoras() {
 					<div>
 						<Header
 							name={nombreCompleto}
-							avatar={"/avatar.png"}
+							avatar={avatar}
 							setShowMenu={setShowMenu}
 							setShowModal={setShowModal}
 						/>
