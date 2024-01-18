@@ -6,7 +6,7 @@ import Header from "../components/Header";
 import {useEffect} from "react";
 import {useFetch} from "../components/useFetch";
 
-const logo = "/logo.png";
+const logo = "logo.png";
 
 const sideBarOptions = [
 	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},

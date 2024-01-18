@@ -19,7 +19,7 @@ function Login() {
 				console.log(res.data);
 				localStorage.setItem("token", res.data.token);
 				localStorage.setItem("id", res.data.id);
-				navigate("/#/profile");
+				navigate("/profile");
 				window.location.reload();
 			}
 		});

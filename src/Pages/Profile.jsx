@@ -5,7 +5,7 @@ import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import {useFetch} from "../components/useFetch.js";
 
-const logo = "/logo.png";
+const logo = "logo.png";
 
 const sideBarOptions = [
 	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
