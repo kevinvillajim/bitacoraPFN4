@@ -4,7 +4,7 @@ import "../App.css";
 import ModalUser from "../components/ModalUser";
 import Header from "../components/Header";
 import Tabla from "../components/Tabla";
-import useFetch from "../hooks/useFetch";
+import useFetch from "../components/useFetch";
 
 const logo = "/logo.png";
 
