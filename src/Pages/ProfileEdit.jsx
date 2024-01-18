@@ -187,7 +187,7 @@ function ProfileEdit() {
 							<div id="body-container">
 								<section id="back-container" className="mb-1">
 									<a
-										href="/#/profile"
+										href="/bitacoraPFN4/#/profile"
 										id="back"
 										className="text-[#dba18a] text-lg font-medium flex items-center"
 									>

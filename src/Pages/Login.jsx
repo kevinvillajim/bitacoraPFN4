@@ -19,7 +19,7 @@ function Login() {
 				console.log(res.data);
 				localStorage.setItem("token", res.data.token);
 				localStorage.setItem("id", res.data.id);
-				navigate("/profile");
+				navigate("/bitacoraPFN4/#/profile");
 				window.location.reload();
 			}
 		});
@@ -76,7 +76,7 @@ function Login() {
 								<p>No tienes cuenta?</p>
 
 								<div>
-									<a href="/#/signup" className="text-[#dba18a]">
+									<a href="/bitacoraPFN4/#/signup" className="text-[#dba18a]">
 										<span>Registrate</span>
 									</a>
 								</div>

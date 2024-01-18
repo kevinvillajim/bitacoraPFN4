@@ -125,7 +125,7 @@ function Profile() {
 										</div>
 										<a
 											id="edit-button"
-											href="/#/edit-profile"
+											href="/bitacoraPFN4/#/edit-profile"
 											className="py-2 px-4 bg-[#dba18a] text-white rounded-md"
 										>
 											Edit
