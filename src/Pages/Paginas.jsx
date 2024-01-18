@@ -7,7 +7,7 @@ import Tabla from "../components/Tabla";
 import {ModalNew} from "../components/ModalNew";
 import {useFetch} from "../components/useFetch";
 
-const logo = "/logo.png";
+const logo = "logo.png";
 
 const sideBarOptions = [
 	{link: "/bitacoraPFN4/#/roles/", icon: "manage_accounts", name: "Roles"},
