@@ -134,7 +134,7 @@ function Usuarios() {
 							name: "img",
 							label: "Avatar",
 							style: "hidden",
-							value: "/avatar.png",
+							value: "avatar.png",
 						},
 					]}
 					api="http://127.0.0.1:8000/api/usuarios"
