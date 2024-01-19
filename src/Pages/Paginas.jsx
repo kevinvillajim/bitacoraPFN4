@@ -40,7 +40,6 @@ function Bitacoras() {
 		fetchData();
 	}, [data, loading, error]);
 
-	// Llamada a la API para obtener otros datos (por ejemplo, datos de personas)
 	const url2 = `http://127.0.0.1:8000/api/personas/${userId}`;
 	const {data: data2, loading: loading2, error: error2} = useFetch(url2);
 
@@ -88,7 +87,7 @@ function Bitacoras() {
 					<div className={showModal ? "inline" : "hidden"}>
 						<ModalUser />
 					</div>
-					<div className="p-[2rem] bg-[#e3e3e3] h-full ">
+					<div className="p-[2rem] bg-[#e3e3e3] h-[calc(100%-65px)] ">
 						<div className="flex justify-between mb-[1rem]">
 							<h1 className="text-[30px] font-bold text-gray-800">Páginas</h1>
 							<button

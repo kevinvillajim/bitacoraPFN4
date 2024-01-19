@@ -182,8 +182,8 @@ function ProfileEdit() {
 					<div className={showModal ? "inline" : "hidden"}>
 						<ModalUser />
 					</div>
-					<div className="p-[2rem] bg-[#e3e3e3] h-full">
-						<div className="h-[100%] w-[90%] bg-white px-[6rem] py-[4rem]">
+					<div className="p-[2rem] bg-[#e3e3e3] h-[calc(100%-65px)]">
+						<div className="h-[100%] w-[90%] bg-white px-[6rem] py-[1.5rem]">
 							<div id="body-container">
 								<section id="back-container" className="mb-1">
 									<a
@@ -200,7 +200,7 @@ function ProfileEdit() {
 								</section>
 								<section
 									id="profile-card-container2"
-									className="p-3 border border-solid border-gray-300 rounded-xl"
+									className="h-[500px] p-3 border border-solid border-gray-300 rounded-xl overflow-auto"
 								>
 									<div id="profile-container2" className="mb-1">
 										<div id="profile-info-container">
@@ -222,7 +222,7 @@ function ProfileEdit() {
 													id="photo"
 													alt="profile-photo"
 													src={formulario.img}
-													className="w-[100px] h-[100px]"
+													className="object-contain w-[100px] h-[100px]"
 												/>
 
 												<label

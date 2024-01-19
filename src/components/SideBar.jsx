@@ -6,7 +6,7 @@ function SideBar({logo, enterprise, title, options, name, email}) {
 
 	return (
 		<>
-			<div id="left-menu" className={`bg-[${colorBg}] w-[100%] h-[100%]`}>
+			<div id="left-menu" className={`bg-[${colorBg}] w-[100%] h-dvh`}>
 				<div className="flex items-center p-[1rem]">
 					<img alt="logo" src={logo} className="w-[100%] h-[100%] " />
 					<h1 className={`text-${textColor} ml-[0.5rem] text-[20px]`}>

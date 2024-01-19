@@ -89,7 +89,7 @@ function Profile() {
 					<div className={showModal ? "inline" : "hidden"}>
 						<ModalUser />
 					</div>
-					<div className="p-[2rem] bg-[#e3e3e3] h-full">
+					<div className="p-[2rem] bg-[#e3e3e3] h-[calc(100%-65px)]">
 						<div className="h-[100%] w-[90%] bg-white rounded-lg p-[1rem]">
 							<div id="body-container" className="mx-20">
 								<section id="title-info" className="text-center">
@@ -106,7 +106,7 @@ function Profile() {
 
 								<section
 									id="profile-card-container"
-									className="border border-gray-300 rounded-xl"
+									className="border border-gray-300 rounded-xl overflow-auto h-[450px]"
 								>
 									<div
 										id="profile-container"
@@ -258,7 +258,6 @@ function Profile() {
 					</div>
 				</div>
 			</div>
-			;
 		</>
 	);
 }

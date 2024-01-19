@@ -35,7 +35,7 @@ function Header({setShowMenu, setShowModal, name, avatar}) {
 					<img
 						src={avatar}
 						alt="avatar"
-						className="w-[2.5rem] h-[2.5rem] rounded-full"
+						className="w-[2.5rem] h-[2.5rem] rounded-full object-cover"
 					/>
 					<div className="flex items-center">
 						<h2 className={`ml-[1rem] text-${textColor}`}>{name}</h2>

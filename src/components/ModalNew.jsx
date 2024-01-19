@@ -1,10 +1,29 @@
 import PropTypes from "prop-types";
+import $ from "jquery"; // Asegúrate de importar jQuery
 
 export function ModalNew({setShowModalNew, formObject, api}) {
+	const handleSubmit = (event) => {
+		event.preventDefault();
+		$.ajax({
+			url: api,
+			type: "POST",
+			data: $(event.target).serialize(),
+			success: function (response) {
+				console.log(response);
+				window.location.reload();
+				setShowModalNew(false);
+			},
+			error: function (error) {
+				// Aquí puedes manejar los errores
+				console.error(error);
+			},
+		});
+	};
+
 	return (
 		<>
 			<div className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center">
-				<div className="w-[40%] h-[90%] bg-white px-[2rem] py-[2rem] rounded-lg relative">
+				<div className="bg-white px-[2rem] py-[2rem] rounded-lg relative">
 					<div className="w-[100%] text-end">
 						<span
 							className="material-symbols-outlined cursor-pointer"
@@ -16,7 +35,7 @@ export function ModalNew({setShowModalNew, formObject, api}) {
 						</span>
 					</div>
 					<div className="h-[100%] w-[100%] flex justify-center items-center">
-						<form action={api} method="POST">
+						<form onSubmit={handleSubmit}>
 							{formObject.map((item, index) => (
 								<div key={index}>
 									<label htmlFor={item.name} className={item.style}>

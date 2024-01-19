@@ -84,7 +84,7 @@ function Bitacoras() {
 					<div className={showModal ? "inline" : "hidden"}>
 						<ModalUser />
 					</div>
-					<div className="p-[2rem] bg-[#e3e3e3] h-full">
+					<div className="p-[2rem] bg-[#e3e3e3] h-[calc(100%-65px)]">
 						<div className="flex justify-between mb-[1rem]">
 							<h1 className="text-[30px] font-bold text-gray-800">Bitacoras</h1>
 						</div>

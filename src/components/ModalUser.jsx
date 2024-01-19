@@ -24,7 +24,7 @@ function ModalUser() {
 				<hr className="border-[#fff]" />
 				<div
 					id="logout"
-					className="hover:bg-[#be6570] cursor-pointer rounded-xl p-[0.5rem] flex items-center"
+					className="hover:bg-[#be6570] cursor-pointer rounded-xl p-[0.5rem] flex items-center mt-[0.5rem]"
 					onClick={logout}
 				>
 					<span className="material-symbols-outlined mr-[0.3rem] text-[#fff]">
