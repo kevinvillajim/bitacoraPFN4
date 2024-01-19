@@ -1,4 +1,13 @@
-[Deploy](https://kevinvillajim.github.io/bitacoraPFN4/)
+[Deploy Frontend](https://kevinvillajim.github.io/bitacoraPFN4/)
+
+# Instrucciones para Deploy del Backend:
+
+1) Descargar el Zip o clonar el repositorio del backend [Aqui](https://github.com/kevinvillajim/bbackendPFN4)
+2) Una vez con el proyecto local (laravel) ejecutar los comandos: 
+a)php artisan migrate
+b)php artisan db:seed
+c)php artisan serve
+3) Ingresar y correl el front end, o en el deploy de la parte superior o localmente es lo mismo.
 
 # React + Vite
 
